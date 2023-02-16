@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15.2-alpine
+    container_name: db-postgres-15.2
+    networks:
+      - todoapp
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: todo-db
+      POSTGRES_USER: todo-app
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+  web:
+    build: .
+    command: "rails s -p 3000 -b '0.0.0.0'"
+    networks:
+      - todoapp
+    environment:
+      DB_HOST: db
+      DB_NAME: todo-db
+      DB_USERNAME: todo-app
+      DB_PASSWORD: password
+    volumes:
+      - .:/app:cached
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+volumes:
+  db_data:
+networks:
+  todoapp:
