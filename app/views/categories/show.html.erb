@@ -1,0 +1,10 @@
+<section class="flex flex-col gap-2 w-full">
+    <h1 class="font-bold text-3xl">Tasks of <%= @category.title %> category</h1>
+    <div class="flex gap-2">
+        <%= link_to 'Back', categories_path, class: "btn-link" %>
+        <span class="font-thin">|</span>
+        <%= link_to 'Edit category', edit_category_path(@category), class: "btn-link" %>
+    </div>
+
+    <%= render @category.to_dos %>
+</section>
