@@ -1,0 +1,18 @@
+<%= form_with(model: category, local: true) do |form| %>
+    <% if category.errors.any? %>
+        <ul class="flex flex-col gap-2 mb-5">
+            <% category.errors.full_messages.each do |message| %>
+                <li class="bg-red-600 text-white py-2 px-3 font-medium rounded-md"><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
+    <div class="flex flex-col gap-1 justify-center">
+        <%= form.label :title, class: "font-medium text-xl" %>
+        <%= form.text_field :title, placeholder: "Enter a task name", class: "rounded-md placeholder" %>
+    </div>
+
+    <div class="mt-5">
+        <%= form.submit "Save", class: "btn-primary" %>
+    </div>
+<% end %>
