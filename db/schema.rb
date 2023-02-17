@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_16_221640) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_17_173804) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,4 +28,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_221640) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "todo_categories", force: :cascade do |t|
+    t.bigint "to_do_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_todo_categories_on_category_id"
+    t.index ["to_do_id"], name: "index_todo_categories_on_to_do_id"
+  end
+
+  add_foreign_key "todo_categories", "categories"
+  add_foreign_key "todo_categories", "to_dos"
 end
