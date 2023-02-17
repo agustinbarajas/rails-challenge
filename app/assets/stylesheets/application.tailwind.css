@@ -2,12 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
 @layer components {
+  .btn {
+    @apply py-2 px-4 rounded-md cursor-pointer text-base font-medium;
+  }
+  
   .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+    @apply btn bg-blue-200;
+  }
+
+  .btn-secondary {
+    @apply btn bg-gray-300;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-500;
+  }
+
+  .btn-link {
+    @apply text-base font-medium text-blue-500;
+  }
+
+  .placeholder {
+    @apply placeholder:italic placeholder:text-slate-400;
   }
 }
-
-*/
