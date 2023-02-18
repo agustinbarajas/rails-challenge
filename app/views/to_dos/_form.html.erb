@@ -1,0 +1,30 @@
+<%= form_with(model: to_do, local: true) do |form| %>
+    <% if to_do.errors.any? %>
+        <ul class="flex flex-col gap-2 mb-5">
+            <% to_do.errors.full_messages.each do |message| %>
+                <li class="bg-red-600 text-white py-2 px-3 font-medium rounded-md"><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
+    <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-1 justify-center">
+            <%= form.label :title, class: "font-medium text-xl" %>
+            <%= form.text_field :title, placeholder: "Enter task name", class: "rounded-md placeholder" %>
+        </div>
+
+        <div class="flex flex-col gap-1 justify-center">
+            <%= form.label :description, class: "font-medium text-xl" %>
+            <%= form.text_area :description, placeholder: "Enter task description", class: "rounded-md placeholder" %>
+        </div>
+
+        <div class="flex flex-col gap-1 justify-center">
+            <%= form.label :image, class: "font-medium text-xl" %>
+            <%= form.file_field :image %>
+        </div>
+
+        <div class="mt-5">
+            <%= form.submit "Save", class: "btn-primary" %>
+        </div>
+    </div>
+<% end %>
