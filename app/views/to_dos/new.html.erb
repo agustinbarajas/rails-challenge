@@ -1,0 +1,9 @@
+<section class="flex flex-col gap-2 w-full">
+  <h1 class="font-bold text-3xl">Create task</h1>
+
+  <div class="my-5">
+    <%= render 'form', to_do: @to_do  %>
+  </div>
+
+  <%= link_to 'Back to tasks', to_dos_path, class: "btn-link" %>
+</section>

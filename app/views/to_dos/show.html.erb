@@ -1,0 +1,25 @@
+<section class="flex flex-col gap-2 w-full">
+    <h1 class="font-bold text-3xl">Task description</h1>
+    <div class="flex gap-2">
+        <%= link_to 'Back', to_dos_path, class: "btn-link" %>
+        <span class="font-thin">|</span>
+        <%= link_to 'Edit task', edit_to_do_path(@to_do), class: "btn-link" %>
+    </div>
+
+    <div class="flex flex-col gap-2 my-5">
+        <div class="flex gap-1 align-center">
+            <label class="font-medium text-xl">Title:</label>
+            <label class="font-normal text-lg"><%= @to_do.title %></label>
+        </div>
+
+        <div class="flex flex-col justify-center">
+            <label class="font-medium text-xl">Description:</label>
+            <p class="font-normal text-lg"><%= @to_do.description %></p>
+        </div>
+
+        <div class="flex flex-col gap-1 justify-center">
+            <label class="font-medium text-xl">Image:</label>
+            <%= image_tag (@to_do.image), class: "object-contain w-fit max-h-48 h-48" %>
+        </div>
+    </div>
+</section>

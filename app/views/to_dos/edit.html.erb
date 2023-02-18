@@ -1,0 +1,13 @@
+<section class="flex flex-col gap-2 w-full">
+  <h1 class="font-bold text-3xl">Editing task</h1>
+
+  <div class="my-5">
+    <%= render 'form', to_do: @to_do  %>
+  </div>
+
+  <div class="flex gap-2">
+    <%= link_to 'Show', @to_do, class: "btn-link" %>
+    <span class="font-thin">|</span>
+    <%= link_to 'Back to tasks', to_dos_path, class: "btn-link" %>
+  </div>
+</section>
